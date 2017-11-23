@@ -718,14 +718,14 @@ class SVNRepository {
 			$dst = fopen($filename, 'w');
 			if ($dst) {
 				$content = file_get_contents($tempname);
-				$content = explode('<br />', $content);
+				$content = explode("\n", $content);
 
 				// $attributes is used to remember what highlighting attributes
 				// are in effect from one line to the next
 				$attributes = array(); // start with no attributes in effect
 
 				foreach ($content as $line) {
-					fputs($dst, $this->highlightLine(trim($line), $attributes)."\n");
+					fputs($dst, $this->highlightLine("$line\n", $attributes));
 				}
 				fclose($dst);
 			}
