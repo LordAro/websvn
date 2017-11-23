@@ -325,17 +325,6 @@ function inline_diff($all, $ignoreWhitespace, $highlighted, $newtname, $oldtname
 		$context = 1;
 	}
 
-	// modify error reporting level to suppress deprecated/strict warning "Assigning the return value of new by reference"
-	$bckLevel = error_reporting();
-	$removeLevel = 0;
-	if (version_compare(PHP_VERSION, '5.3.0alpha') !== -1) {
-		$removeLevel = E_DEPRECATED;
-	} else if (version_compare(PHP_VERSION, '5.0.0') !== -1) {
-		$removeLevel = E_STRICT;
-	}
-	$modLevel = $bckLevel & (~$removeLevel);
-	error_reporting($modLevel);
-
 	// Create the diff class
 	$fromLines = file($oldtname);
 	$toLines = file($newtname);
@@ -359,9 +348,6 @@ function inline_diff($all, $ignoreWhitespace, $highlighted, $newtname, $oldtname
 	}
 	$renderer = new Horde_Text_Diff_Renderer_Unified(array('leading_context_lines' => $context, 'trailing_context_lines' => $context));
 	$rendered = explode("\n", $renderer->render($diff));
-
-	// restore previous error reporting level
-	error_reporting($bckLevel);
 
 	$arrayBased = true;
 	$fileBased = false;
