@@ -24,7 +24,8 @@
 // These lines are automatically paired and also inline diff is performed to show
 // insertions/deletions on one line
 
-require_once 'Horde/Autoloader/Default.php';
+require_once 'vendor/autoload.php';
+use Horde\Text\Diff;
 
 // Interface for diffing function
 class LineDiffInterface {

@@ -22,7 +22,9 @@
 //
 // Diff to files
 
-require_once 'Horde/Autoloader/Default.php';
+require_once 'vendor/autoload.php';
+use Horde\Text\Diff;
+
 include_once 'include/diff_util.php';
 
 $arrayBased = false;

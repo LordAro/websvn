@@ -17,7 +17,6 @@
     "url": "https://pear.horde.org"
   }],
   "require": {
-    "pear-pear.horde.org/Horde_Autoloader": "^2.1",
     "pear-pear.horde.org/Horde_Text_Diff": "^2.2"
   }
 }
