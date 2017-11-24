@@ -1,0 +1,23 @@
+{
+  "name": "LordAro/websvn",
+  "version": "2.4.0",
+  "license": "GPL-2.0",
+  "authors": [{
+    "name": "Quinn Taylor",
+    "role": "Developer"
+  },
+  {
+    "name": "Dirk Thomas",
+    "role": "Developer"
+  }],
+
+
+  "repositories": [{
+    "type": "pear",
+    "url": "https://pear.horde.org"
+  }],
+  "require": {
+    "pear-pear.horde.org/Horde_Autoloader": "^2.1",
+    "pear-pear.horde.org/Horde_Text_Diff": "^2.2"
+  }
+}
