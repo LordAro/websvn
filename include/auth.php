@@ -103,7 +103,8 @@ class Authentication {
 			}
 			foreach ($this->usersGroups as $users_group) {
 				foreach ($groups as $group => $names) {
-					if (in_array($users_group, preg_split('/\s*,\s*/', $names))) {
+					if (in_array($users_group, preg_split('/\s*,\s*/', $names))
+					   && !in_array('@'.$group, $this->usersGroups)) {
 						$this->usersGroups[] = '@'.$group;
 					}
 				}
